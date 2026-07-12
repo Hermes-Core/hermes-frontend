@@ -21,3 +21,9 @@ Atualmente, a dependência de métodos ultrapassados, como agendas físicas, ger
 
 ---
 
+## 🏠 Página Inicial
+
+A página inicial apresenta o Hermes como uma plataforma de acompanhamento da vida escolar em tempo real. Ela inclui uma seção sobre o projeto, os principais módulos e cards com funcionalidades como agenda escolar, desempenho acadêmico, atendimentos, calendário e notificações.
+
+Desenvolvido por Felipe.
+
