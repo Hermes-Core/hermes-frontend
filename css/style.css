@@ -92,7 +92,6 @@ a {
   width: 60px;
 }
 
-
 .main-navigation ul {
   display: flex;
   align-items: center;
@@ -154,16 +153,19 @@ a {
   position: relative;
   padding: 80px 0 40px;
 
-  background:
-    linear-gradient(
-      180deg,
-      var(--color-surface) 0%,
-      var(--color-surface-soft) 100%
-    );
-    background-image: url('../img/hero.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  background: linear-gradient(
+    180deg,
+    var(--color-surface) 0%,
+    var(--color-surface-soft) 100%
+  );
+  background-image: url("../img/hero.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero.pages {
+  height: 624px;
 }
 
 .hero-content {
@@ -248,12 +250,11 @@ a {
 
   padding: 36px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(252, 111, 1, 0.12),
-      rgba(252, 245, 234, 0.8)
-    );
+  background: linear-gradient(
+    145deg,
+    rgba(252, 111, 1, 0.12),
+    rgba(252, 245, 234, 0.8)
+  );
 
   border-radius: 80px 30px 80px 30px;
 }
@@ -277,14 +278,13 @@ a {
   padding: 30px;
 
   color: var(--color-primary-dark);
-  background:
-    repeating-linear-gradient(
-      -45deg,
-      rgba(231, 79, 0, 0.03),
-      rgba(231, 79, 0, 0.03) 12px,
-      rgba(255, 255, 255, 0.65) 12px,
-      rgba(255, 255, 255, 0.65) 24px
-    );
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(231, 79, 0, 0.03),
+    rgba(231, 79, 0, 0.03) 12px,
+    rgba(255, 255, 255, 0.65) 12px,
+    rgba(255, 255, 255, 0.65) 24px
+  );
 
   border: 2px dashed rgba(231, 79, 0, 0.35);
   border-radius: 40px;
@@ -501,6 +501,10 @@ a {
     justify-content: center;
   }
 
+  .hero.pages {
+    height: auto;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
   }
@@ -547,6 +551,10 @@ a {
 
   .hero {
     padding-top: 55px;
+  }
+
+  .hero.pages {
+    height: auto;
   }
 
   .hero-image-area {
