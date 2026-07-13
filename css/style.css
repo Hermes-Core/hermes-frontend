@@ -456,6 +456,23 @@ a {
   font-size: 15px;
 }
 
+.feature-item ul {
+  margin-top: 16px;
+  padding-left: 20px;
+  color: var(--color-text-soft);
+  list-style: disc;
+}
+
+.feature-item ul li {
+  margin-bottom: 10px;
+  line-height: 1.55;
+}
+
+main.features-section {
+  padding: 90px 0;
+  background: var(--color-surface-soft);
+}
+
 /* Rodapé */
 
 .site-footer {
