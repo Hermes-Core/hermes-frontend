@@ -26,26 +26,6 @@ Atualmente, a dependência de métodos ultrapassados, como agendas físicas, ger
 ---
 # PAEDI - Painel de Acompanhamento Digital Escolar Integrado (Plataforma Hermes)
 
-## 🏗️ Arquitetura e Tecnologias
-
-O sistema foi concebido sob a ótica da escalabilidade, segurança e alta disponibilidade, utilizando um modelo totalmente desacoplado entre o cliente e o servidor. A infraestrutura base é dividida nas seguintes camadas:
-
-### 📱 Frontend
-Desenvolvido como uma **Single Page Application (SPA)** utilizando **React** e **Vite**. É responsável pela interface, gerenciamento do estado local e renderização dinâmica para smartphones e computadores.
-* **Hospedagem:** Vercel
-
-### ⚙️ Backend
-Construído em **Java** com o framework **Spring Boot**. Segue o padrão de controladores, serviços e repositórios, centralizando as regras de negócio, segurança (RBAC) e validação de dados. 
-* **Hospedagem:** Railway
-
-### 🗄️ Banco de Dados
-Persistência relacional utilizando o **PostgreSQL Serverless**. Garante a integridade referencial e segurança total dos dados acadêmicos e registros dos estudantes.
-* **Infraestrutura:** Neon
-
-### 🔄 Integração e Comunicação
-* **REST & JSON:** O Frontend e o Backend se comunicam exclusivamente via requisições HTTP RESTful, trafegando dados em JSON.
-* **ORM:** A ponte entre a aplicação e a base de dados é feita de forma segura via **Spring Data JPA**.
-* **JWT:** O tráfego de dados sensíveis exige autenticação com tokens para proteger a privacidade dos alunos e responsáveis.
 <p align="center">
   <img src="./img/logo.png" alt="Logo Hermes" width="150">
 </p>
