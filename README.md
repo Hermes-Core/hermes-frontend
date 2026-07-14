@@ -46,6 +46,7 @@ Persistência relacional utilizando o **PostgreSQL Serverless**. Garante a integ
 * **REST & JSON:** O Frontend e o Backend se comunicam exclusivamente via requisições HTTP RESTful, trafegando dados em JSON.
 * **ORM:** A ponte entre a aplicação e a base de dados é feita de forma segura via **Spring Data JPA**.
 * **JWT:** O tráfego de dados sensíveis exige autenticação com tokens para proteger a privacidade dos alunos e responsáveis.
+
 <p align="center">
   <img src="./img/logo.png" alt="Logo Hermes" width="150">
 </p>
@@ -99,4 +100,4 @@ O front-end institucional e os painéis de visualização foram desenvolvidos co
 <p align="center">
   <small>Universidade Federal do Cariri • Centro de Educação a Distância • 2026</small>
 </p>
-</p>
+
