@@ -1,11 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arquitetura do Hermes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Arquitetura do Sistema Hermes - Visão técnica e infraestrutura.">
+  <title>Hermes - Arquitetura do Sistema</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <h1>Arquitetura do Hermes</h1>
+  <div class="page-wrapper">
+
+    <header class="site-header">
+      <div class="container header-content">
+        <a href="../index.html" class="brand" aria-label="Página inicial do Hermes">
+          <div class="brand-logo">
+            <img src="../img/logo.png" alt="Logo Hermes">
+          </div>
+        </a>
+
+        <nav class="main-navigation" aria-label="Navegação principal">
+          <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="../index.html#funcionalidades">Funcionalidades</a></li>
+            <li><a href="arquitetura.html" class="active">Arquitetura</a></li>
+            <li><a href="equipe.html">Equipe</a></li>
+          </ul>
+        </nav>
+
+        <a href="sobre.html" class="header-button">Conhecer o projeto</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero pages">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <span class="hero-label">Modelo Arquitetural</span>
+            <h1>Infraestrutura e <strong>Tecnologia</strong></h1>
+            <p>
+              O sistema Hermes foi concebido sob a ótica da escalabilidade, segurança e alta disponibilidade, 
+              utilizando um modelo totalmente desacoplado entre o cliente e o servidor.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <div class="container">
+          <div class="section-heading">
+            <span>Visão Geral</span>
+            <h2>Estrutura em Camadas</h2>
+            <p>A arquitetura divide-se em componentes independentes para facilitar a manutenção e evolução do ecossistema.</p>
+          </div>
+
+          <div class="about-grid">
+            
+            <article class="information-card">
+              <div class="card-icon">01</div>
+              <h3>Frontend</h3>
+              <p>
+                Desenvolvido como uma Single Page Application (SPA) utilizando React e Vite. É responsável pela interface, 
+                gerenciamento do estado local e renderização dinâmica para smartphones e computadores. Hospedado na Vercel.
+              </p>
+            </article>
+
+            <article class="information-card">
+              <div class="card-icon">02</div>
+              <h3>Backend</h3>
+              <p>
+                Construído em Java com o framework Spring Boot. Segue o padrão de controladores, serviços e repositórios, 
+                centralizando as regras de negócio, segurança (RBAC) e validação de dados. Hospedado no Railway.
+              </p>
+            </article>
+
+            <article class="information-card">
+              <div class="card-icon">03</div>
+              <h3>Banco de Dados</h3>
+              <p>
+                Persistência relacional utilizando o PostgreSQL Serverless através da infraestrutura Neon. Garante a integridade 
+                referencial e segurança total dos dados acadêmicos e registros dos estudantes.
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="features-section" id="apis-comunicacao">
+        <div class="container">
+          <div class="section-heading">
+            <span>Integração</span>
+            <h2>APIs e Comunicação</h2>
+            <p>Como as partes do sistema conversam entre si de forma assíncrona e segura.</p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-item">
+              <div class="feature-number">REST</div>
+              <div>
+                <h3>Troca de Dados em JSON</h3>
+                <p>O Frontend e o Backend se comunicam exclusivamente via requisições HTTP RESTful, trafegando dados estruturados no formato JSON.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-number">ORM</div>
+              <div>
+                <h3>Spring Data JPA</h3>
+                <p>A ponte entre o servidor de aplicação e a base de dados PostgreSQL é feita de forma segura por mapeamento objeto-relacional.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-number">JWT</div>
+              <div>
+                <h3>Segurança Baseada em Tokens</h3>
+                <p>O tráfego de dados sensíveis exige autenticação com tokens (evoluindo para JWT), protegendo a privacidade dos alunos e responsáveis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <div class="container">
+          <div class="section-heading">
+            <span>Visualização</span>
+            <h2>Diagrama de Camadas</h2>
+            <p>Representação visual do desacoplamento físico e fluxo de dados do ecossistema Hermes.</p>
+          </div>
+
+          <div class="hero-image-area">
+            <div class="image-placeholder">
+<img src="/img/diagram.png" alt="Representação visual do desacoplamento físico e fluxo de dados do ecossistema Hermes">
+              </small>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div>
+          <strong>HERMES</strong>
+          <p>Vida Escolar em Tempo Real</p>
+        </div>
+        <p>
+          Projeto acadêmico desenvolvido para o curso de Análise e Desenvolvimento de Sistemas. 
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="../js/script.js"></script>
 </body>
 </html>
