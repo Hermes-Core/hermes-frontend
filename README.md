@@ -9,8 +9,16 @@
 
 ## 📑 Tabela de Conteúdos
 * [Sobre o Projeto](#-sobre-o-projeto)
+<<<<<<< HEAD
 * [Arquitetura e Tecnologias](#-arquitetura-e-tecnologias)
 * [Contribuições](#-contribuições)
+=======
+<<<<<<< HEAD
+* [Arquitetura e Tecnologias](#%EF%B8%8F-arquitetura-e-tecnologias)
+=======
+* [Contribuições](#-contribuições)
+>>>>>>> 6af7f0f (Adiciona página de funcionalidades, estilo e navegação consistente)
+>>>>>>> 79d8ccf (correcao de conflitos)
 
 ---
 ## 🤝 Contribuições
