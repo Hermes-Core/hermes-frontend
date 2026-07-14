@@ -9,9 +9,16 @@
 
 ## 📑 Tabela de Conteúdos
 * [Sobre o Projeto](#-sobre-o-projeto)
+<<<<<<< HEAD
 * [Arquitetura e Tecnologias](#%EF%B8%8F-arquitetura-e-tecnologias)
+=======
+* [Contribuições](#-contribuições)
+>>>>>>> 6af7f0f (Adiciona página de funcionalidades, estilo e navegação consistente)
 
 ---
+## 🤝 Contribuições
+
+Esta atualização incluiu a criação da página de funcionalidades em `pages/funcionalidades.html`, com seções para Agenda Escolar, Notificações, Frequência, Notas, Calendário, Atendimento e Gestão Escolar.
 
 ## 💻 Sobre o Projeto
 
