@@ -99,3 +99,4 @@ O front-end institucional e os painéis de visualização foram desenvolvidos co
 <p align="center">
   <small>Universidade Federal do Cariri • Centro de Educação a Distância • 2026</small>
 </p>
+</p>
