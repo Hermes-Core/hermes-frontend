@@ -9,10 +9,7 @@
 
 ## 📑 Tabela de Conteúdos
 * [Sobre o Projeto](#-sobre-o-projeto)
-<<<<<<< HEAD
 * [Arquitetura e Tecnologias](#%EF%B8%8F-arquitetura-e-tecnologias)
-=======
->>>>>>> 6af7f0f (Adiciona página de funcionalidades, estilo e navegação consistente)
 * [Contribuições](#-contribuições)
 
 ---
@@ -29,7 +26,6 @@ Atualmente, a dependência de métodos ultrapassados, como agendas físicas, ger
 ---
 # PAEDI - Painel de Acompanhamento Digital Escolar Integrado (Plataforma Hermes)
 
-<<<<<<< HEAD
 ## 🏗️ Arquitetura e Tecnologias
 
 O sistema foi concebido sob a ótica da escalabilidade, segurança e alta disponibilidade, utilizando um modelo totalmente desacoplado entre o cliente e o servidor. A infraestrutura base é dividida nas seguintes camadas:
@@ -50,8 +46,7 @@ Persistência relacional utilizando o **PostgreSQL Serverless**. Garante a integ
 * **REST & JSON:** O Frontend e o Backend se comunicam exclusivamente via requisições HTTP RESTful, trafegando dados em JSON.
 * **ORM:** A ponte entre a aplicação e a base de dados é feita de forma segura via **Spring Data JPA**.
 * **JWT:** O tráfego de dados sensíveis exige autenticação com tokens para proteger a privacidade dos alunos e responsáveis.
-=======
->>>>>>> 454d095 (feat: adicionando pagina de equipe e contato)
+
 <p align="center">
   <img src="./img/logo.png" alt="Logo Hermes" width="150">
 </p>
@@ -104,8 +99,5 @@ O front-end institucional e os painéis de visualização foram desenvolvidos co
 
 <p align="center">
   <small>Universidade Federal do Cariri • Centro de Educação a Distância • 2026</small>
-<<<<<<< HEAD
 </p>
-=======
-</p>
->>>>>>> 454d095 (feat: adicionando pagina de equipe e contato)
+
