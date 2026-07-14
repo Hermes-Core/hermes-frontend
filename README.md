@@ -11,7 +11,6 @@
 * [Sobre o Projeto](#-sobre-o-projeto)
 * [Arquitetura e Tecnologias](#-arquitetura-e-tecnologias)
 * [Contribuições](#-contribuições)
-* [Contribuições](#-contribuições)
 
 ---
 ## 🤝 Contribuições
