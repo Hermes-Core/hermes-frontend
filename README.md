@@ -29,7 +29,7 @@ Atualmente, a dependência de métodos ultrapassados, como agendas físicas, ger
 # PAEDI - Painel de Acompanhamento Digital Escolar Integrado (Plataforma Hermes)
 
 <p align="center">
-  <img src="./img/logo.png" alt="Logo Hermes" width="150">
+  <img src="../../img/logo.png" alt="Logo Hermes" width="150">
 </p>
 
 O **PAEDI** é um sistema digital projetado para mitigar os desafios de comunicação, monitoramento e engajamento na rotina escolar de estudantes brasileiros. Através da plataforma **Hermes**, o software atua como um elo em tempo real entre instituições de ensino, professores, alunos e pais/responsáveis que possuem rotinas exigentes e precisam superar barreiras físicas e de tempo para acompanhar a vida escolar dos filhos de forma transparente e consolidada.
