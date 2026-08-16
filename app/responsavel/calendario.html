@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calendário letivo com provas, feriados, eventos e reuniões.">
+  <title>Calendário Letivo — Hermes</title>
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-role="responsavel" data-page="calendario">
+
+  <div class="page">
+    <div class="page-header">
+      <h1>Calendário Letivo</h1>
+      <p>Calendário anual com provas, feriados, eventos e reuniões</p>
+    </div>
+
+    <section class="card" aria-label="Navegação entre meses">
+      <div class="calendar-bar">
+        <button type="button" class="btn btn-outline" id="mes-anterior">
+          <span class="icon" data-icon="arrowLeft"></span> Anterior
+        </button>
+        <h2 id="mes-atual">—</h2>
+        <button type="button" class="btn btn-outline" id="mes-proximo">
+          Próximo <span class="icon" data-icon="arrowRight"></span>
+        </button>
+      </div>
+    </section>
+
+    <div class="stack">
+      <div class="grid-2">
+        <section class="card" aria-label="Dias do mês">
+          <div class="calendar" id="grade-calendario"></div>
+
+          <div class="day-details" id="detalhes-do-dia"></div>
+        </section>
+
+        <section class="card" aria-labelledby="titulo-legenda">
+          <div class="card-header">
+            <h2 class="card-title" id="titulo-legenda">Legenda</h2>
+          </div>
+          <ul class="legend-list" style="list-style:none;padding:0">
+            <li><span class="list-icon tint-purple" data-icon="graduation" data-icon-size="20"></span> Provas/Avaliações</li>
+            <li><span class="list-icon tint-green" data-icon="alert" data-icon-size="20"></span> Feriados</li>
+            <li><span class="list-icon tint-blue" data-icon="party" data-icon-size="20"></span> Eventos Escolares</li>
+            <li><span class="list-icon" style="background:var(--orange);color:#fff" data-icon="calendar" data-icon-size="20"></span> Dia Atual</li>
+          </ul>
+
+          <div class="card-header mt-2">
+            <h2 class="card-title">Próximos compromissos</h2>
+          </div>
+          <ul class="item-list" id="proximos-compromissos"></ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/mock-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/responsavel.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema de disparo de comunicados para turmas ou toda a escola.">
+  <title>Enviar Avisos — Hermes</title>
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-role="professor" data-page="avisos">
+
+  <div class="page">
+    <div class="page-header">
+      <h1>Enviar Avisos</h1>
+      <p>Sistema de disparo de comunicados para turmas ou toda escola</p>
+    </div>
+
+    <div class="stat-grid" id="indicadores"></div>
+
+    <section class="card" aria-labelledby="titulo-aviso">
+      <div class="card-header">
+        <h2 class="card-title" id="titulo-aviso">
+          <span class="icon" data-icon="send" data-icon-size="22"></span> Novo Aviso
+        </h2>
+      </div>
+
+      <form id="form-aviso" data-validar novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="tipo">Tipo de Aviso</label>
+            <select id="tipo" name="tipo" required></select>
+            <p class="field-error"></p>
+          </div>
+          <div class="field">
+            <label for="prioridade">Prioridade</label>
+            <select id="prioridade" name="prioridade" required></select>
+            <p class="field-error"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Destinatários</span>
+          <div class="radio-cards">
+            <div class="radio-card">
+              <label class="radio-card-title"><input type="radio" name="destino" value="turma" checked> Turma Específica</label>
+              <label class="sr-only" for="destino-turma">Selecione a turma</label>
+              <select id="destino-turma"></select>
+            </div>
+            <div class="radio-card">
+              <label class="radio-card-title"><input type="radio" name="destino" value="serie"> Série/Ano</label>
+              <label class="sr-only" for="destino-serie">Selecione a série</label>
+              <select id="destino-serie">
+                <option>9º Ano (Todas)</option>
+                <option>8º Ano (Todas)</option>
+                <option>7º Ano (Todas)</option>
+              </select>
+            </div>
+            <div class="radio-card">
+              <label class="radio-card-title"><input type="radio" name="destino" value="escola"> Toda a Escola</label>
+              <p>Enviar para todos os pais e responsáveis</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="titulo">Título do Aviso</label>
+          <input type="text" id="titulo" name="titulo" placeholder="Ex: Prova de Matemática na próxima sexta-feira" required>
+          <p class="field-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Escreva o comunicado que será enviado aos responsáveis..." required></textarea>
+          <p class="field-error"></p>
+        </div>
+
+        <div class="btn-row">
+          <button type="submit" class="btn btn-dark">
+            <span class="icon" data-icon="send"></span> Enviar Aviso
+          </button>
+          <button type="button" class="btn btn-outline" id="salvar-rascunho">Salvar rascunho</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="titulo-enviados">
+      <div class="card-header">
+        <h2 class="card-title" id="titulo-enviados">
+          <span class="icon" data-icon="message" data-icon-size="22"></span> Avisos Enviados
+        </h2>
+      </div>
+      <ul class="item-list" id="lista-avisos"></ul>
+    </section>
+  </div>
+
+  <script src="../js/mock-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/professor.js"></script>
+</body>
+</html>

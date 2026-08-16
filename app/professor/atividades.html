@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ferramenta para professores publicarem novas atividades e tarefas.">
+  <title>Cadastrar Atividades — Hermes</title>
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-role="professor" data-page="atividades">
+
+  <div class="page">
+    <div class="page-header">
+      <h1>Cadastrar Atividades</h1>
+      <p>Ferramenta para professores postarem novas tarefas</p>
+    </div>
+
+    <section class="card" aria-labelledby="titulo-nova">
+      <div class="card-header">
+        <h2 class="card-title" id="titulo-nova">
+          <span class="icon" data-icon="plus" data-icon-size="22"></span> Nova Atividade
+        </h2>
+      </div>
+
+      <form id="form-atividade" data-validar novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="disciplina">Disciplina</label>
+            <select id="disciplina" name="disciplina" required></select>
+            <p class="field-error"></p>
+          </div>
+          <div class="field">
+            <label for="turma">Turma</label>
+            <select id="turma" name="turma" required></select>
+            <p class="field-error"></p>
+          </div>
+        </div>
+
+        <div class="form-grid-3">
+          <div class="field">
+            <label for="tipo">Tipo de Atividade</label>
+            <select id="tipo" name="tipo" required></select>
+            <p class="field-error"></p>
+          </div>
+          <div class="field">
+            <label for="entrega">Data de Entrega</label>
+            <input type="date" id="entrega" name="entrega" required>
+            <p class="field-error"></p>
+          </div>
+          <div class="field">
+            <label for="valor">Valor (Pontos)</label>
+            <input type="number" id="valor" name="valor" min="0" max="10" step="0.5" placeholder="0 a 10" required>
+            <p class="field-error"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="titulo">Título da Atividade</label>
+          <input type="text" id="titulo" name="titulo" placeholder="Ex: Exercícios de Álgebra - Capítulo 5" required>
+          <p class="field-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="descricao">Descrição/Instruções</label>
+          <textarea id="descricao" name="descricao" placeholder="Descreva as instruções, objetivos e detalhes da atividade..." required></textarea>
+          <p class="field-error"></p>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Material de Apoio</span>
+          <button type="button" class="upload-box" id="botao-upload">
+            <span class="icon" data-icon="upload" data-icon-size="26"></span>
+            <strong>Clique para anexar arquivos</strong>
+            <span>PDF, DOCX ou imagens de até 10&nbsp;MB</span>
+          </button>
+        </div>
+
+        <div class="btn-row">
+          <button type="submit" class="btn btn-dark">
+            <span class="icon" data-icon="send"></span> Publicar Atividade
+          </button>
+          <button type="reset" class="btn btn-outline">Limpar formulário</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="titulo-publicadas">
+      <div class="card-header">
+        <h2 class="card-title" id="titulo-publicadas">
+          <span class="icon" data-icon="clipboard" data-icon-size="22"></span> Atividades Publicadas
+        </h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <caption class="sr-only">Atividades já publicadas pelo professor</caption>
+          <thead>
+            <tr>
+              <th scope="col">Título</th>
+              <th scope="col">Turma</th>
+              <th scope="col">Tipo</th>
+              <th scope="col" class="num">Entrega</th>
+              <th scope="col" class="num">Valor</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-atividades"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="../js/mock-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/professor.js"></script>
+</body>
+</html>

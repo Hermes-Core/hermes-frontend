@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Painel da secretaria: matrículas, turmas e solicitações.">
+  <title>Dashboard da Secretaria — Hermes</title>
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-role="funcionario" data-page="dashboard">
+
+  <div class="page">
+    <div class="page-header">
+      <h1>Dashboard</h1>
+      <p>Visão geral da secretaria escolar</p>
+    </div>
+
+    <div class="stat-grid" id="indicadores"></div>
+
+    <div class="stack">
+      <section class="card" aria-labelledby="titulo-solicitacoes">
+        <div class="card-header">
+          <h2 class="card-title" id="titulo-solicitacoes">
+            <span class="icon" data-icon="file" data-icon-size="22"></span> Solicitações Recentes
+          </h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption class="sr-only">Solicitações abertas pelos responsáveis</caption>
+            <thead>
+              <tr>
+                <th scope="col">Protocolo</th>
+                <th scope="col">Solicitante</th>
+                <th scope="col">Tipo</th>
+                <th scope="col" class="num">Abertura</th>
+                <th scope="col" class="num">Status</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-solicitacoes"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="titulo-comunicados">
+        <div class="card-header">
+          <h2 class="card-title" id="titulo-comunicados">
+            <span class="icon" data-icon="message" data-icon-size="22"></span> Últimos Comunicados
+          </h2>
+          <a class="btn btn-outline btn-sm" href="comunicados.html">Novo comunicado</a>
+        </div>
+        <ul class="item-list" id="lista-comunicados"></ul>
+      </section>
+    </div>
+  </div>
+
+  <script src="../js/mock-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/funcionario.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agenda escolar: atividades diárias e lições de casa do estudante.">
+  <title>Agenda Escolar — Hermes</title>
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-role="responsavel" data-page="agenda">
+
+  <div class="page">
+    <div class="page-header">
+      <h1>Agenda Escolar</h1>
+      <p>Acompanhamento de atividades diárias e lições de casa</p>
+    </div>
+
+    <section class="card" aria-labelledby="titulo-filtros">
+      <div class="card-header">
+        <h2 class="card-title" id="titulo-filtros">
+          <span class="icon" data-icon="filter" data-icon-size="22"></span> Filtros
+        </h2>
+      </div>
+
+      <form class="filters-row" id="form-filtros">
+        <div class="field">
+          <label for="filtro-data">Data</label>
+          <input type="date" id="filtro-data" name="data">
+        </div>
+        <div class="field">
+          <label for="filtro-disciplina">Disciplina</label>
+          <select id="filtro-disciplina" name="disciplina">
+            <option value="">Todas</option>
+            <option>Matemática</option>
+            <option>Português</option>
+            <option>Ciências</option>
+            <option>História</option>
+            <option>Geografia</option>
+            <option>Inglês</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="filtro-status">Status</label>
+          <select id="filtro-status" name="status">
+            <option value="">Todos</option>
+            <option value="pendente">Pendente</option>
+            <option value="entregue">Entregue</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-dark">Filtrar</button>
+      </form>
+    </section>
+
+    <div class="stack">
+      <div class="grid-2">
+        <section class="card" aria-labelledby="titulo-atividades">
+          <div class="card-header">
+            <h2 class="card-title" id="titulo-atividades">
+              <span class="icon" data-icon="calendar" data-icon-size="22"></span>
+              <span>Atividades do Dia - <span id="data-selecionada"></span></span>
+            </h2>
+          </div>
+          <div id="lista-atividades"></div>
+        </section>
+
+        <section class="card" aria-labelledby="titulo-licoes">
+          <div class="card-header">
+            <h2 class="card-title" id="titulo-licoes">
+              <span class="icon" data-icon="checkCircle" data-icon-size="22"></span> Lições de Casa - Semana Atual
+            </h2>
+          </div>
+          <ul class="item-list" id="lista-licoes"></ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/mock-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/responsavel.js"></script>
+</body>
+</html>

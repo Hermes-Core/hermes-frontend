@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Acesso ao sistema Hermes — vida escolar em tempo real.">
+  <title>Entrar — Hermes</title>
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="login-page">
+  <div class="login-wrapper">
+    <div class="login-brand">
+      <img src="../img/logo.png" alt="Hermes">
+      <p>Vida escolar em tempo real</p>
+    </div>
+
+    <div class="login-card">
+      <h1>Autenticação</h1>
+
+      <form id="form-login" data-validar novalidate>
+        <div class="field">
+          <span class="field-label" id="rotulo-perfil">Perfil de acesso</span>
+          <div class="role-picker" role="group" aria-labelledby="rotulo-perfil">
+            <button type="button" class="role-option" data-perfil="responsavel" aria-pressed="true">Responsável</button>
+            <button type="button" class="role-option" data-perfil="professor" aria-pressed="false">Professor</button>
+            <button type="button" class="role-option" data-perfil="funcionario" aria-pressed="false">Funcionário</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="usuario">Usuário</label>
+          <div class="input-wrap" style="gap: 0.5rem;">
+            <span class="icon" data-icon="user"></span>
+            <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" autocomplete="username" required>
+          </div>
+          <p class="field-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="senha">Senha</label>
+          <div class="input-wrap">
+            <span class="icon" data-icon="lock"></span>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete="current-password" required>
+          </div>
+          <p class="field-error"></p>
+        </div>
+
+        <button type="submit" class="btn btn-dark btn-block">
+          <span class="icon" data-icon="login"></span> Entrar no sistema
+        </button>
+      </form>
+
+      <p class="login-links">
+        <a href="#" data-acao="indisponivel">Esqueci minha senha</a> •
+        <a href="#" data-acao="indisponivel">Primeiro acesso</a>
+      </p>
+    </div>
+
+    <p class="login-hint">
+      Ambiente de demonstração — acesse com <strong>responsavel</strong>, <strong>professor</strong>
+      ou <strong>funcionario</strong> e a senha <strong>123456</strong>.<br>
+      <a href="../index.html">← Voltar para o site do Hermes</a>
+    </p>
+  </div>
+
+  <script src="js/mock-data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

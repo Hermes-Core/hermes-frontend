@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Publicação de comunicados oficiais da secretaria escolar.">
+  <title>Comunicados — Hermes</title>
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-role="funcionario" data-page="comunicados">
+
+  <div class="page">
+    <div class="page-header">
+      <h1>Comunicados</h1>
+      <p>Publicação de avisos oficiais da secretaria para a comunidade escolar</p>
+    </div>
+
+    <section class="card" aria-labelledby="titulo-novo">
+      <div class="card-header">
+        <h2 class="card-title" id="titulo-novo">
+          <span class="icon" data-icon="plus" data-icon-size="22"></span> Novo Comunicado
+        </h2>
+      </div>
+
+      <form id="form-comunicado" data-validar novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="destino">Destinatários</label>
+            <select id="destino" name="destino" required>
+              <option value="">Selecione...</option>
+              <option>Toda a escola</option>
+              <option>Responsáveis do turno da manhã</option>
+              <option>Responsáveis do turno da tarde</option>
+              <option>Professores</option>
+            </select>
+            <p class="field-error"></p>
+          </div>
+          <div class="field">
+            <label for="publicacao">Data de Publicação</label>
+            <input type="date" id="publicacao" name="publicacao" required>
+            <p class="field-error"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" name="titulo" placeholder="Ex: Calendário de recuperação do 1º semestre" required>
+          <p class="field-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Escreva o comunicado oficial..." required></textarea>
+          <p class="field-error"></p>
+        </div>
+
+        <button type="submit" class="btn btn-dark">
+          <span class="icon" data-icon="send"></span> Publicar Comunicado
+        </button>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="titulo-publicados">
+      <div class="card-header">
+        <h2 class="card-title" id="titulo-publicados">
+          <span class="icon" data-icon="message" data-icon-size="22"></span> Comunicados Publicados
+        </h2>
+      </div>
+      <ul class="item-list" id="lista-comunicados"></ul>
+    </section>
+  </div>
+
+  <script src="../js/mock-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/funcionario.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interface para registro de notas e faltas pelos docentes.">
+  <title>Lançar Notas — Hermes</title>
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-role="professor" data-page="notas">
+
+  <div class="page">
+    <div class="page-header">
+      <h1>Lançar Notas</h1>
+      <p>Interface para registro de avaliações pelos docentes</p>
+    </div>
+
+    <section class="card" aria-labelledby="titulo-selecao">
+      <div class="card-header">
+        <h2 class="card-title" id="titulo-selecao">Selecionar Turma e Avaliação</h2>
+      </div>
+
+      <form id="form-selecao">
+        <div class="form-grid-3" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+          <div class="field">
+            <label for="disciplina">Disciplina</label>
+            <select id="disciplina"></select>
+          </div>
+          <div class="field">
+            <label for="turma">Turma</label>
+            <select id="turma"></select>
+          </div>
+          <div class="field">
+            <label for="periodo">Período</label>
+            <select id="periodo"></select>
+          </div>
+          <div class="field">
+            <label for="avaliacao">Avaliação</label>
+            <select id="avaliacao"></select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-dark">Carregar Lista de Alunos</button>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="titulo-lancamento">
+      <div class="card-header">
+        <h2 class="card-title" id="titulo-lancamento">
+          <span class="icon" data-icon="graduation" data-icon-size="22"></span>
+          <span id="rotulo-lancamento">Lançamento de Notas</span>
+        </h2>
+        <div class="btn-row">
+          <button type="button" class="btn btn-outline" id="botao-importar">
+            <span class="icon" data-icon="upload"></span> Importar
+          </button>
+          <button type="button" class="btn btn-dark" id="botao-salvar">
+            <span class="icon" data-icon="save"></span> Salvar Tudo
+          </button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <caption class="sr-only">Lançamento de notas e faltas por aluno</caption>
+          <thead>
+            <tr>
+              <th scope="col" class="num">Nº</th>
+              <th scope="col">Matrícula</th>
+              <th scope="col">Nome do Aluno</th>
+              <th scope="col" class="num">Nota (0-10)</th>
+              <th scope="col" class="num">Faltas</th>
+              <th scope="col">Observações</th>
+              <th scope="col" class="num">Status</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-alunos"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="../js/mock-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/professor.js"></script>
+</body>
+</html>

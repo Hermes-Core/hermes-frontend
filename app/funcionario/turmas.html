@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Controle de turmas, turnos e vagas disponíveis.">
+  <title>Turmas e Vagas — Hermes</title>
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-role="funcionario" data-page="turmas">
+
+  <div class="page">
+    <div class="page-header">
+      <h1>Turmas e Vagas</h1>
+      <p>Controle de lotação das turmas e disponibilidade de vagas</p>
+    </div>
+
+    <section class="card" aria-labelledby="titulo-turmas">
+      <div class="card-header">
+        <h2 class="card-title" id="titulo-turmas">
+          <span class="icon" data-icon="users" data-icon-size="22"></span> Turmas Ativas
+        </h2>
+        <div class="field" style="margin:0">
+          <label class="sr-only" for="filtro-turno">Filtrar por turno</label>
+          <select id="filtro-turno">
+            <option value="">Todos os turnos</option>
+            <option value="Manhã">Manhã</option>
+            <option value="Tarde">Tarde</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <caption class="sr-only">Turmas com turno, número de alunos, vagas e professor regente</caption>
+          <thead>
+            <tr>
+              <th scope="col">Turma</th>
+              <th scope="col">Turno</th>
+              <th scope="col" class="num">Alunos</th>
+              <th scope="col" class="num">Vagas</th>
+              <th scope="col">Professor Regente</th>
+              <th scope="col" class="num">Situação</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-turmas"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="../js/mock-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/funcionario.js"></script>
+</body>
+</html>

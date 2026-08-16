@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Solicitação de reuniões com professores, coordenação e direção.">
+  <title>Agendamentos — Hermes</title>
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-role="responsavel" data-page="agendamentos">
+
+  <div class="page">
+    <div class="page-header">
+      <h1>Agendamento de Atendimentos</h1>
+      <p>Solicitar reuniões com professores, coordenação e direção</p>
+    </div>
+
+    <section class="card" aria-labelledby="titulo-solicitacao">
+      <div class="card-header">
+        <h2 class="card-title" id="titulo-solicitacao">
+          <span class="icon" data-icon="plus" data-icon-size="22"></span> Nova Solicitação de Atendimento
+        </h2>
+      </div>
+
+      <form id="form-agendamento" data-validar novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="tipo">Tipo de Atendimento</label>
+            <select id="tipo" name="tipo" required>
+              <option value="">Selecione...</option>
+            </select>
+            <p class="field-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="responsavel">Selecionar Responsável</label>
+            <select id="responsavel" name="responsavel" required>
+              <option value="">Selecione...</option>
+            </select>
+            <p class="field-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="data">Data Preferencial</label>
+            <input type="date" id="data" name="data" required>
+            <p class="field-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="turno">Horário Preferencial</label>
+            <select id="turno" name="turno" required>
+              <option>Manhã (08h - 12h)</option>
+              <option>Tarde (13h - 17h)</option>
+              <option>Noite (18h - 21h)</option>
+            </select>
+            <p class="field-error"></p>
+          </div>
+
+          <div class="field field-full">
+            <label for="motivo">Motivo/Assunto</label>
+            <textarea id="motivo" name="motivo" placeholder="Descreva brevemente o motivo do atendimento..." required></textarea>
+            <p class="field-error"></p>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-dark">
+          <span class="icon" data-icon="plus"></span> Solicitar Agendamento
+        </button>
+      </form>
+    </section>
+
+    <div class="stack">
+      <div class="grid-2">
+        <section class="card" aria-labelledby="titulo-pendentes">
+          <div class="card-header">
+            <h2 class="card-title" id="titulo-pendentes">
+              <span class="icon" data-icon="clock" data-icon-size="22"></span> Solicitações Pendentes
+            </h2>
+          </div>
+          <div id="lista-pendentes"></div>
+        </section>
+
+        <section class="card" aria-labelledby="titulo-confirmados">
+          <div class="card-header">
+            <h2 class="card-title" id="titulo-confirmados">
+              <span class="icon" data-icon="userCheck" data-icon-size="22"></span> Atendimentos Confirmados
+            </h2>
+          </div>
+          <div id="lista-confirmados"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/mock-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/responsavel.js"></script>
+</body>
+</html>

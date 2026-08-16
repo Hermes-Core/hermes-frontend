@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Solicitações de reuniões enviadas pelos responsáveis.">
+  <title>Agendamentos Solicitados — Hermes</title>
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-role="professor" data-page="agendamentos">
+
+  <div class="page">
+    <div class="page-header">
+      <h1>Agendamentos Solicitados</h1>
+      <p>Solicitações de reuniões com responsáveis</p>
+    </div>
+
+    <div class="grid-2">
+      <section class="card" aria-labelledby="titulo-aguardando">
+        <div class="card-header">
+          <h2 class="card-title" id="titulo-aguardando">
+            <span class="icon" data-icon="clock" data-icon-size="22"></span> Aguardando Confirmação
+          </h2>
+        </div>
+        <div id="lista-pendentes"></div>
+      </section>
+
+      <section class="card" aria-labelledby="titulo-confirmados">
+        <div class="card-header">
+          <h2 class="card-title" id="titulo-confirmados">
+            <span class="icon" data-icon="userCheck" data-icon-size="22"></span> Confirmados
+          </h2>
+        </div>
+        <div id="lista-confirmados"></div>
+      </section>
+    </div>
+  </div>
+
+  <script src="../js/mock-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/professor.js"></script>
+</body>
+</html>

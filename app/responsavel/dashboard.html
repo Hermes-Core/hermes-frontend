@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Painel do responsável: visão geral da vida escolar em tempo real.">
+  <title>Dashboard — Hermes</title>
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-role="responsavel" data-page="dashboard">
+
+  <div class="page">
+    <div class="page-header">
+      <h1>Dashboard</h1>
+      <p>Visão geral da vida escolar em tempo real</p>
+    </div>
+
+    <div class="stat-grid" id="indicadores"></div>
+
+    <div class="stack">
+      <div class="grid-2">
+        <section class="card" aria-labelledby="titulo-calendario">
+          <div class="card-header">
+            <h2 class="card-title" id="titulo-calendario">
+              <span class="icon" data-icon="calendarDays" data-icon-size="22"></span> Calendário Letivo
+            </h2>
+            <span class="card-note" id="mes-atual"></span>
+          </div>
+          <div class="calendar" id="grade-calendario"></div>
+          <div class="legend">
+            <span><i style="background:var(--blue-soft)"></i> Eventos</span>
+            <span><i style="background:var(--purple-soft)"></i> Provas</span>
+            <span><i style="background:#e4f2dd"></i> Feriados</span>
+            <span><i style="background:var(--orange)"></i> Hoje</span>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="titulo-agenda">
+          <div class="card-header">
+            <h2 class="card-title" id="titulo-agenda">
+              <span class="icon" data-icon="calendar" data-icon-size="22"></span> Agenda do Dia
+            </h2>
+          </div>
+          <ul class="item-list" id="agenda-do-dia"></ul>
+        </section>
+      </div>
+
+      <section class="card" aria-labelledby="titulo-desempenho">
+        <div class="card-header">
+          <h2 class="card-title" id="titulo-desempenho">
+            <span class="icon" data-icon="trending" data-icon-size="22"></span> Desempenho Acadêmico
+          </h2>
+          <a class="btn btn-outline btn-sm" href="desempenho.html">Ver boletim completo</a>
+        </div>
+        <div class="grid-3" id="resumo-notas"></div>
+      </section>
+    </div>
+  </div>
+
+  <script src="../js/mock-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/responsavel.js"></script>
+</body>
+</html>
