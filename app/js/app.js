@@ -214,27 +214,45 @@
             return global.matchMedia('(max-width: 900px)').matches;
         }
 
+        function atualizarBotaoMenu(aberto) {
+            if (!alternar) {
+                return;
+            }
+            alternar.innerHTML = icone(aberto ? 'close' : 'menu', 22);
+            alternar.setAttribute('aria-expanded', String(aberto));
+            alternar.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+        }
+
+        function menuEstaAberto() {
+            return menuEstreito()
+                ? sidebar.classList.contains('open')
+                : !document.body.classList.contains('sidebar-collapsed');
+        }
+
         function alternarMenu() {
             if (menuEstreito()) {
                 var aberto = sidebar.classList.toggle('open');
                 fundo.classList.toggle('visible', aberto);
-                alternar.setAttribute('aria-expanded', String(aberto));
+                atualizarBotaoMenu(aberto);
             } else {
                 var oculto = document.body.classList.toggle('sidebar-collapsed');
-                alternar.setAttribute('aria-expanded', String(!oculto));
+                atualizarBotaoMenu(!oculto);
             }
         }
 
         if (alternar) {
             alternar.addEventListener('click', alternarMenu);
+            atualizarBotaoMenu(menuEstaAberto());
         }
 
         fundo.addEventListener('click', function () {
             sidebar.classList.remove('open');
             fundo.classList.remove('visible');
-            if (alternar) {
-                alternar.setAttribute('aria-expanded', 'false');
-            }
+            atualizarBotaoMenu(false);
+        });
+
+        global.addEventListener('resize', function () {
+            atualizarBotaoMenu(menuEstaAberto());
         });
 
         if (sair) {

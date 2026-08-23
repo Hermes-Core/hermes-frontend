@@ -648,7 +648,9 @@ textarea.invalid {
 }
 
 .page {
-    max-width: 1180px;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
 body.sidebar-collapsed .sidebar {
@@ -694,7 +696,8 @@ body.sidebar-collapsed .sidebar {
     padding: 24px;
 }
 
-.card + .card,
+.page > .card + .card,
+.page > .card + .stack,
 .stack > * + * {
     margin-top: 22px;
 }
