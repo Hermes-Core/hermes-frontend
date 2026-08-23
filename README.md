@@ -92,6 +92,20 @@ Recursos interativos já funcionando:
 
 > ⚠️ **Escopo desta entrega:** o MVP **não possui back-end**. Todos os dados são simulados em [`app/js/mock-data.js`](app/js/mock-data.js), o que permite demonstrar integralmente os fluxos de navegação e interação da interface antes da construção do servidor.
 
+### Entrega final — formulários e interações com JavaScript
+
+Em atendimento à atividade final da disciplina, o Hermes integra formulários ao contexto de cada perfil do sistema. Os envios são tratados no navegador: os campos obrigatórios são verificados com JavaScript, erros são destacados e comunicados por mensagens de feedback, e os dados simulados atualizam a própria interface. Não é necessário enviar dados a um servidor real nesta versão.
+
+| Formulário | Tela | Comportamento implementado |
+| --- | --- | --- |
+| Login | `app/login.html` | Seleção de perfil, validação das credenciais de demonstração e mensagem de erro para acesso inválido. |
+| Solicitação de agendamento | `app/responsavel/agendamentos.html` | Campos de seleção, data, turno e mensagem; cria uma solicitação e confirma o envio ao responsável. |
+| Cadastro de atividades | `app/professor/atividades.html` | Publica atividades com tipo, turma, data, título e descrição; a nova atividade aparece na lista da tela. |
+| Envio de avisos | `app/professor/avisos.html` | Envia avisos com destino, tipo, título e mensagem; atualiza a lista de avisos enviados. |
+| Publicação de comunicados | `app/funcionario/comunicados.html` | Publica comunicados oficiais com destino, título, mensagem e data; atualiza os comunicados publicados. |
+
+As interações adicionais em JavaScript incluem o calendário letivo navegável, filtros de agenda e notificações, menu lateral retrátil e responsivo, confirmação ou recusa de agendamentos, marcação de lições concluídas e mensagens temporárias de sucesso ou erro (*toasts*). Todos os formulários utilizam rótulos associados aos campos, botão de envio e a estilização responsiva compartilhada em `app/css/app.css`.
+
 ---
 
 ## 2. 🌍 Possíveis usos da nossa solução
