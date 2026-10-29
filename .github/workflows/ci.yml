@@ -1,0 +1,76 @@
+name: CI e publicacao no GitHub Pages
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  javascript:
+    name: Verificar sintaxe JavaScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter codigo do repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Validar arquivos JavaScript versionados
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -d '' -t arquivos < <(git ls-files -z -- '*.js')
+          if [ "${#arquivos[@]}" -eq 0 ]; then
+            echo "Erro: nenhum arquivo JavaScript encontrado."
+            exit 1
+          fi
+          for arquivo in "${arquivos[@]}"; do
+            echo "Verificando: $arquivo"
+            node --check "$arquivo"
+          done
+          echo "Sintaxe validada em ${#arquivos[@]} arquivo(s)."
+
+  deploy:
+    name: Publicar no GitHub Pages
+    needs: javascript
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Obter codigo do repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Preparar arquivos do site
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          cp index.html _site/
+          cp -R app css img js pages _site/
+
+      - name: Enviar arquivos para publicacao
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Publicar site
+        id: deployment
+        uses: actions/deploy-pages@v4
