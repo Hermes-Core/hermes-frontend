@@ -342,3 +342,145 @@ A divisão por página, e não por camada, permitiu que seis pessoas produzissem
 <p align="center">
   <small>Universidade Federal do Cariri • Centro de Educação a Distância • 2026</small>
 </p>
+```
+## Integração contínua e publicação no GitHub Pages
+
+Esta seção orienta estudantes da UFCA e outras pessoas da comunidade a compreender,
+utilizar e reproduzir o processo de integração contínua do Hermes. A explicação
+começa pelo conceito de CI, apresenta as verificações automatizadas e termina com
+instruções práticas para acompanhar os resultados e publicar o site.
+
+### O que é integração contínua e por que aprender?
+
+Integração contínua, ou CI, é a prática de integrar pequenas alterações ao projeto
+com frequência e verificá-las automaticamente. Isso permite que a equipe receba
+feedback sobre o código durante o desenvolvimento.
+
+Imagine que dois estudantes estejam alterando o mesmo sistema escolar. Um deles
+modifica o calendário e esquece de fechar um parêntese em um arquivo JavaScript.
+Ao enviar essa alteração ao GitHub, uma verificação automática pode apontar o erro
+e indicar onde ele ocorreu. O estudante consegue corrigir o problema antes de
+publicar a alteração no site.
+
+Para quem está aprendendo a programar, a CI ajuda a:
+
+- Identificar erros mais cedo e interpretar mensagens de diagnóstico.
+- Criar o hábito de verificar o código a cada alteração.
+- Colaborar com colegas usando verificações consistentes.
+- Entender a relação entre versionamento, revisão e publicação de software.
+
+A CI complementa o aprendizado e a revisão humana. Uma verificação aprovada
+significa que os critérios automatizados foram atendidos, mas não garante que
+todas as funcionalidades estejam corretas.
+
+### Como o processo foi configurado no Hermes?
+
+O workflow está em [`.github/workflows/ci.yml`](.github/workflows/ci.yml) e recebe
+o nome **CI e publicacao no GitHub Pages**. Um workflow é um arquivo YAML que
+descreve os eventos e as tarefas que o GitHub Actions deve executar.
+
+O Hermes utiliza HTML, CSS e JavaScript puro, sem etapa de build ou dependências
+de aplicação para instalar. Por isso, a tarefa de CI escolhida foi a verificação
+de sintaxe dos arquivos JavaScript com `node --check`.
+
+O processo foi dividido em dois jobs, isto é, dois conjuntos de etapas:
+
+| Job | Etapas e finalidade |
+| --- | --- |
+| `javascript` | Obtém o código com `actions/checkout@v4`, configura Node.js 24 com `actions/setup-node@v4`, lista os arquivos `.js` versionados e verifica a sintaxe de cada um. |
+| `deploy` | Após a aprovação de `javascript`, prepara os arquivos estáticos e os publica no GitHub Pages, somente na branch `main` e fora de eventos de pull request. |
+
+A instrução `needs: javascript` faz o job de publicação depender da aprovação da
+verificação. Os jobs usam um ambiente Linux disponibilizado pelo GitHub.
+
+Na publicação, `actions/configure-pages@v5` configura o Pages,
+`actions/upload-pages-artifact@v4` envia o pacote do site e
+`actions/deploy-pages@v4` realiza o deploy. A pasta preparada para publicação
+contém `index.html`, `app/`, `css/`, `img/`, `js/` e `pages/`, preservando a
+estrutura de navegação.
+
+O workflow possui permissão padrão de leitura do conteúdo. Somente o job `deploy`
+recebe as permissões adicionais `pages: write` e `id-token: write`, necessárias
+à publicação. Ele utiliza o ambiente `github-pages` e um grupo de concorrência
+para evitar publicações simultâneas desse workflow.
+
+### Quando as tarefas são executadas?
+
+Um **push** envia commits ao GitHub. Um **pull request (PR)** propõe integrar
+alterações de uma branch em outra, permitindo revisão antes do merge.
+
+| Evento | Verificação JavaScript | Publicação por este workflow |
+| --- | --- | --- |
+| Push em uma branch diferente de `main` | Executa | Não executa |
+| Abertura ou atualização de pull request | Executa | Não executa |
+| Push ou execução manual na `main`, com verificação aprovada | Aprova | Executa |
+| Push ou execução manual na `main`, com erro na verificação | Reprova | É ignorada; a versão anterior continua disponível |
+
+Um push em uma branch com PR aberto pode gerar duas execuções, uma para cada
+evento. Isso é esperado nesta configuração.
+
+### Como ativar a publicação e acompanhar os resultados?
+
+1. Adicione o arquivo `.github/workflows/ci.yml` ao repositório.
+2. Em **Settings → Pages → Build and deployment → Source**, selecione
+   **GitHub Actions**.
+3. Disponibilize o workflow na branch `main`. Confira se há outros workflows
+   publicando no Pages e desative fluxos independentes, caso existam.
+4. Acesse **Actions** e selecione **CI e publicacao no GitHub Pages**.
+5. Abra uma execução e consulte o job **Verificar sintaxe JavaScript**.
+6. Expanda **Validar arquivos JavaScript versionados** para visualizar os arquivos
+   analisados e eventuais mensagens de erro.
+7. Após uma execução aprovada na `main`, acompanhe o job **Publicar no GitHub
+   Pages** e abra o endereço exibido.
+
+Para acionar manualmente, use **Actions → CI e publicacao no GitHub Pages →
+Run workflow**. O arquivo precisa existir na branch padrão para que essa opção
+seja disponibilizada. Selecione `main` para validar e publicar.
+
+**Endereço do site:**
+[hermes-core.github.io/hermes-frontend](https://hermes-core.github.io/hermes-frontend/).
+
+O endereço já existente é mantido. A configuração e os comandos do novo workflow
+foram verificados localmente; sua execução e publicação no GitHub ainda precisam
+ser comprovadas pelos registros do Actions.
+
+### Como verificar um arquivo no próprio computador?
+
+Com o Node.js 24 instalado, abra um terminal na raiz do projeto e execute:
+
+```bash
+node --check app/js/app.js
+```
+
+Substitua o caminho para verificar outro arquivo. Se a sintaxe estiver válida,
+o comando termina sem mensagens de erro. Se houver problema, apresenta um
+diagnóstico e retorna um código de saída diferente de zero. No workflow, esse
+resultado faz a verificação falhar e impede a publicação daquela execução.
+
+### Atividade prática para outros estudantes
+
+Em uma branch de exercício, introduza temporariamente um erro de sintaxe em um
+arquivo JavaScript, como remover o fechamento de um parêntese. Envie a alteração
+e observe o diagnóstico na aba Actions. Depois, corrija o erro, envie outro commit
+e compare os resultados. Mantenha o exercício fora da branch principal.
+
+Essa atividade permite observar o ciclo de alteração, verificação, diagnóstico e
+correção. O mesmo princípio pode ser aplicado em outros projetos acadêmicos,
+adaptando os comandos às tecnologias utilizadas.
+
+### Quais são os limites dessa verificação?
+
+O comando `node --check` analisa somente a sintaxe JavaScript. Ele não executa a
+aplicação no navegador nem valida HTML, CSS, acessibilidade, aparência ou regras
+de negócio. Formulários, login e calendário continuam exigindo revisão e testes
+de funcionamento.
+
+A dependência entre jobs controla a publicação deste workflow. Para também
+impedir merges quando a verificação falhar, é necessário configurar uma regra
+de proteção da branch ou um ruleset com a verificação obrigatória.
+
+### Referências para aprofundamento
+
+- [Documentação do GitHub Actions](https://docs.github.com/en/actions).
+- [Workflows personalizados para GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+- [Opção `--check` do Node.js](https://nodejs.org/api/cli.html#-c---check).
